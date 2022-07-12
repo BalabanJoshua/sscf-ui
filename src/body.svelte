@@ -1,3 +1,9 @@
+<script>
+    import { httpGet } from './assets/utils.js'
+
+    console.log(JSON.parse(httpGet("env_api_url/version")))
+</script>
+
 <div class="main-cont">
     <h1>SOON</h1>
 </div>

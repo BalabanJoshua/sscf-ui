@@ -1,6 +1,5 @@
-const API = "http://localhost:3000/api"
 
-function httpGet(theUrl)
+export function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
@@ -8,7 +7,7 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
-function httpGetAsync(theUrl, callback)
+export function httpGetAsync(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
@@ -17,13 +16,4 @@ function httpGetAsync(theUrl, callback)
     }
     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
     xmlHttp.send(null);
-}
-
-window.onload = function () {
-    /* let version = httpGet(API + "/version")
-    document.getElementById("page-title").innerHTML = version */
-    httpGetAsync(API + "/version", (res) => {
-        console.log(res)
-        document.getElementById('page-title').innerHTML = JSON.parse(res).version
-    })
 }
